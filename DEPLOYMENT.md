@@ -1,5 +1,44 @@
 # Veltrix Labs - Production Deployment Guide
 
+## Quick Start with npm
+
+### Prerequisites
+- Node.js 18+ (for npm commands)
+- Domain name (optional but recommended)
+- GitHub account (for Cloudflare Pages integration)
+
+### Local Development
+
+```bash
+# Install dependencies (optional, mostly for deployment tools)
+npm install
+
+# Start development server
+npm start
+# or
+npm run dev
+
+# Server runs at http://localhost:8000
+```
+
+### Validation
+
+```bash
+# Validate all files are present and correct
+npm run validate
+
+# Output: "All files validated successfully!"
+```
+
+### Build (for CI/CD)
+
+```bash
+# Build command (used by Cloudflare Pages automatically)
+npm run build
+```
+
+---
+
 ## Environment Setup
 
 ### Prerequisites
@@ -37,7 +76,121 @@ npm i -g vercel
 vercel --prod
 ```
 
-### Option 3: GitHub Pages (Free)
+### Option 3: Cloudflare Pages (Recommended - Ultra-Fast Global CDN)
+
+**Pros:** Free, blazing fast, global CDN, excellent DDoS protection, zero-config, automatic from GitHub
+
+#### Method A: GitHub Integration (Recommended - Fully Automatic CI/CD)
+
+**This is the easiest path. Everything happens automatically!**
+
+1. **Push your code to GitHub:**
+   ```bash
+   # From your repo root
+   git add veltrix-labs/landing/
+   git commit -m "Add Veltrix Labs landing page"
+   git push origin main
+   ```
+
+2. **Connect GitHub to Cloudflare Pages:**
+   - Go to [Cloudflare Dashboard](https://dash.cloudflare.com)
+   - Click **Pages** in the sidebar
+   - Click **Create a project** → **Connect to Git**
+   - Authorize Cloudflare with GitHub
+   - Select your repository
+   - Click **Begin setup**
+
+3. **Configure build settings:**
+   - **Project name:** `veltrix-labs-landing`
+   - **Production branch:** `main`
+   - **Framework preset:** None (static site)
+   - **Build command:** `npm run build`
+   - **Build output directory:** `.` (current folder)
+   - **Root directory (advanced):** `veltrix-labs/landing`
+
+4. **Save and Deploy:**
+   - Click **Save and Deploy**
+   - Cloudflare builds and deploys automatically
+   - Your site is live at a Cloudflare subdomain instantly
+
+5. **Connect your domain:**
+   - After deployment succeeds, go to **Project Settings** → **Domains**
+   - Click **Add a custom domain**
+   - Enter: `www.veltrixlabs.net`
+   - Follow nameserver instructions OR use CNAME record
+
+**That's it! Every push to GitHub automatically builds and deploys.**
+
+#### Method A.1: Optional - GitHub Actions for Preview Deployments
+
+For pull request previews, create `.github/workflows/deploy-cloudflare.yml`:
+
+```yaml
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'veltrix-labs/landing/**'
+  pull_request:
+    paths:
+      - 'veltrix-labs/landing/**'
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: veltrix-labs/landing
+
+      - name: Validate build
+        run: npm run validate
+        working-directory: veltrix-labs/landing
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: veltrix-labs-landing
+          directory: veltrix-labs/landing
+          productionBranch: main
+```
+
+**Add GitHub Secrets:**
+1. Go to GitHub repo → **Settings** → **Secrets and variables** → **Actions**
+2. Create two new secrets:
+   - `CLOUDFLARE_API_TOKEN` - From Cloudflare Profile → API Tokens → Create Token
+   - `CLOUDFLARE_ACCOUNT_ID` - From Cloudflare Dashboard → bottom left corner
+
+#### Method B: Using Wrangler CLI (Manual)
+
+For manual deployments:
+
+```bash
+# Install Wrangler CLI
+npm install -g wrangler
+
+# Login to Cloudflare
+wrangler login
+
+# Deploy (from landing directory)
+cd veltrix-labs/landing
+wrangler publish
+```
+
+### Option 4: GitHub Pages (Free)
 
 ```bash
 # Push code to GitHub
@@ -49,7 +202,7 @@ git push origin main
 # Go to Settings → Pages → Select 'main' branch, '/landing' folder
 ```
 
-### Option 4: AWS CloudFront + S3
+### Option 5: AWS CloudFront + S3
 
 ```bash
 # Create S3 bucket
@@ -62,7 +215,7 @@ aws s3 sync landing/ s3://veltrix-labs-landing/
 # This provides CDN caching + HTTPS
 ```
 
-### Option 5: Docker (For self-hosted)
+### Option 6: Docker (For self-hosted)
 
 ```dockerfile
 # Create Dockerfile in landing/ folder
@@ -240,6 +393,83 @@ https://www.bing.com/webmasters
 - Add backend API endpoint
 - Verify CORS settings
 - Check network tab in DevTools
+
+## Quick Reference - npm Commands
+
+```bash
+# Run locally
+npm start                    # Start dev server at localhost:8000
+npm run dev                  # Same as npm start
+npm run serve                # Alternative using http-server
+
+# Validate files
+npm run validate             # Check all required files exist
+
+# Build (used by Cloudflare Pages automatically)
+npm run build                # Validate and prepare for deployment
+
+# One-liner deployment setup
+npm run deploy:netlify       # Deploy to Netlify
+npm run deploy:vercel        # Deploy to Vercel
+npm run deploy:cloudflare    # Deploy with Wrangler CLI
+```
+
+## Complete Workflow: GitHub Push → Cloudflare Deploy
+
+### Step-by-Step Setup (5 minutes)
+
+**1. Prepare your code:**
+```bash
+cd /path/to/helios-crest
+git add veltrix-labs/landing/
+git commit -m "Add Veltrix Labs landing page with CI/CD"
+git push origin main
+```
+
+**2. Connect Cloudflare to GitHub:**
+- Go to https://dash.cloudflare.com
+- Click **Pages** → **Create a project** → **Connect to Git**
+- Select your GitHub repository
+- Click **Begin setup**
+
+**3. Configure build settings in Cloudflare:**
+```
+Project name:              veltrix-labs-landing
+Production branch:         main
+Framework preset:          None (static)
+Build command:             npm run build
+Build output directory:    .
+Root directory:            veltrix-labs/landing  ← IMPORTANT
+```
+
+**4. Deploy:**
+- Click **Save and Deploy**
+- Watch the build complete (takes ~30 seconds)
+- Get your Cloudflare URL
+
+**5. Connect your domain:**
+- Go to **Project Settings** → **Domains**
+- **Add custom domain** → `www.veltrixlabs.net`
+- Add nameservers or CNAME records in your DNS provider
+
+**6. Done!** 🎉
+Every `git push` to main automatically:
+- ✓ Triggers build (runs `npm run build`)
+- ✓ Validates files
+- ✓ Deploys to Cloudflare's global CDN
+- ✓ Updates your site instantly
+
+### Verify it's working:
+```bash
+# Make a test change
+echo "<!-- Test comment -->" >> veltrix-labs/landing/index.html
+git add veltrix-labs/landing/index.html
+git commit -m "Test deployment trigger"
+git push origin main
+
+# Watch deployment in Cloudflare Dashboard → Pages
+# Should complete in ~30 seconds
+```
 
 ## Support & Updates
 

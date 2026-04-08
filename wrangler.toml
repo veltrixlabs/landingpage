@@ -1,0 +1,33 @@
+name = "veltrix-labs-landing"
+type = "javascript"
+compatibility_date = "2024-04-08"
+
+[env.production]
+name = "veltrix-labs-landing-prod"
+routes = [
+  { pattern = "www.veltrixlabs.net/*", zone_name = "veltrixlabs.net" }
+]
+
+[build]
+command = "npm run build"
+cwd = "./landing"
+
+[build.upload]
+format = "modules"
+
+[env.staging]
+name = "veltrix-labs-landing-staging"
+routes = [
+  { pattern = "staging.veltrixlabs.net/*", zone_name = "veltrixlabs.net" }
+]
+
+# Cache configuration
+[rules]
+type = "CompiledContentType"
+globs = ["*.html", "*.css", "*.js"]
+fallthrough = true
+
+[[rules]]
+type = "CompiledContentType"
+globs = ["*"]
+fallthrough = true
