@@ -17,6 +17,3 @@ routes = [
 [build]
 command = "npm run build"
 cwd = "./landing"
-
-[build.upload]
-format = "modules"

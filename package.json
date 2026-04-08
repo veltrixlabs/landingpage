@@ -13,7 +13,7 @@
     "validate": "echo 'Validating landing page files...' && test -f index.html && test -f robots.txt && test -f sitemap.xml && echo 'All files validated successfully!'",
     "deploy:netlify": "netlify deploy --prod",
     "deploy:vercel": "vercel --prod",
-    "deploy:cloudflare": "wrangler deploy"
+    "deploy:cloudflare": "wrangler deploy --env production"
   },
   "keywords": [
     "landing-page",
