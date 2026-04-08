@@ -2,7 +2,7 @@ name = "veltrix-labs-landing"
 compatibility_date = "2024-04-08"
 
 [assets]
-directory = "./landing"
+directory = "./landingpage"
 
 [env.production]
 name = "veltrix-labs-landing-prod"
