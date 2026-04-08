@@ -9,7 +9,7 @@
     "start": "python3 -m http.server 8000 --directory .",
     "dev": "python3 -m http.server 8000 --directory .",
     "serve": "npx http-server . -p 8000 -o",
-    "build": "echo 'Static site - no build required' && npm run validate",
+    "build": "mkdir -p dist && cp index.html dist/index.html",
     "validate": "echo 'Validating landing page files...' && test -f index.html && test -f robots.txt && test -f sitemap.xml && echo 'All files validated successfully!'",
     "deploy:netlify": "netlify deploy --prod",
     "deploy:vercel": "vercel --prod",
