@@ -13,7 +13,3 @@ name = "veltrix-labs-landing-staging"
 routes = [
   { pattern = "staging.veltrixlabs.net/*", zone_name = "veltrixlabs.net" }
 ]
-
-[build]
-command = "npm run build"
-cwd = "./landing"
