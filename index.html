@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Veltrix Labs - Building Intelligent Systems for a Connected World. Enterprise-grade AI and messaging solutions.">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="Veltrix Labs - Intelligent Systems for Connected World">
+    <meta property="og:description" content="Enterprise AI solutions, messaging platforms, and connected systems.">
+    <meta property="og:image" content="https://www.veltrixlabs.net/og-image.png">
+    <title>Veltrix Labs - Building Intelligent Systems</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/aos@next"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099ff 50%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-border {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099ff 50%, #6366f1 100%);
+            padding: 1px;
+            border-radius: 12px;
+        }
+        
+        .gradient-border > * {
+            background: #0f172a;
+            border-radius: 11px;
+        }
+        
+        .glow-effect {
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.3),
+                        0 0 80px rgba(0, 153, 255, 0.2);
+        }
+        
+        .glow-effect-lg {
+            box-shadow: 0 0 60px rgba(99, 102, 241, 0.4),
+                        0 0 120px rgba(0, 153, 255, 0.2);
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        .animate-pulse-glow {
+            animation: pulse-glow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% {
+                opacity: 1;
+                box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            }
+            50% {
+                opacity: 0.8;
+                box-shadow: 0 0 40px rgba(0, 212, 255, 0.5);
+            }
+        }
+        
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        
+        .button-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .button-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 212, 255, 0.3);
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 40px rgba(99, 102, 241, 0.3);
+        }
+        
+        .nav-active {
+            border-bottom: 2px solid #00d4ff;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-gray-100 smooth-scroll overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-slate-950/80 backdrop-blur-md z-50 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center font-bold text-white">
+                    VL
+                </div>
+                <span class="font-bold text-xl text-white">Veltrix Labs</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#features" class="text-gray-300 hover:text-cyan-400 transition nav-link">Features</a>
+                <a href="#solutions" class="text-gray-300 hover:text-cyan-400 transition nav-link">Solutions</a>
+                <a href="#tech" class="text-gray-300 hover:text-cyan-400 transition nav-link">Technology</a>
+                <a href="#contact" class="text-gray-300 hover:text-cyan-400 transition nav-link">Contact</a>
+            </div>
+            <button class="hidden md:flex bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-2 rounded-lg font-semibold button-hover">
+                Get Started
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl animate-float"></div>
+            <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 left-1/2 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl animate-float" style="animation-delay: 4s;"></div>
+        </div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-6 text-center">
+            <div class="space-y-8">
+                <div class="inline-block px-4 py-2 bg-slate-900 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-semibold">
+                    🚀 Building the Future of Connected Intelligence
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+                    Building <span class="gradient-text">Intelligent Systems</span> for a <span class="gradient-text">Connected World</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                    Enterprise-grade AI solutions, advanced messaging systems, and intelligent connectivity platforms that power next-generation applications and drive digital transformation at scale.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                    <button class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg button-hover glow-effect">
+                        Schedule Demo
+                    </button>
+                    <button class="border border-cyan-500/50 text-cyan-400 px-8 py-4 rounded-lg font-bold text-lg button-hover hover:bg-cyan-500/10">
+                        Learn More →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 pt-12 border-t border-slate-800">
+                <div class="space-y-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-3xl md:text-4xl font-bold text-cyan-400">10M+</div>
+                    <div class="text-gray-400">Messages Processed Daily</div>
+                </div>
+                <div class="space-y-2" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-3xl md:text-4xl font-bold text-cyan-400">99.99%</div>
+                    <div class="text-gray-400">Uptime Guarantee</div>
+                </div>
+                <div class="space-y-2" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-3xl md:text-4xl font-bold text-cyan-400">500+</div>
+                    <div class="text-gray-400">Global Enterprises</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="relative py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Powerful Features</h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">Everything you need to build, deploy, and scale intelligent systems with enterprise-grade reliability and performance.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature Cards -->
+                <div class="gradient-border card-hover" data-aos="fade-up" data-aos-delay="0">
+                    <div class="p-8 space-y-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center text-xl">
+                            ⚡
+                        </div>
+                        <h3 class="text-xl font-bold">Ultra-Fast Processing</h3>
+                        <p class="text-gray-400">Sub-millisecond message processing with intelligent routing and load balancing across distributed infrastructure.</p>
+                    </div>
+                </div>
+
+                <div class="gradient-border card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-8 space-y-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center text-xl">
+                            🔐
+                        </div>
+                        <h3 class="text-xl font-bold">Bank-Grade Security</h3>
+                        <p class="text-gray-400">End-to-end encryption, advanced threat detection, compliance with SOC 2, GDPR, and industry-specific regulations.</p>
+                    </div>
+                </div>
+
+                <div class="gradient-border card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-8 space-y-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center text-xl">
+                            📊
+                        </div>
+                        <h3 class="text-xl font-bold">Real-Time Analytics</h3>
+                        <p class="text-gray-400">Comprehensive dashboards with actionable insights, custom metrics, and predictive analytics powered by machine learning.</p>
+                    </div>
+                </div>
+
+                <div class="gradient-border card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="p-8 space-y-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center text-xl">
+                            🌐
+                        </div>
+                        <h3 class="text-xl font-bold">Global Infrastructure</h3>
+                        <p class="text-gray-400">Distributed across 6 continents with automatic failover, edge processing, and intelligent routing for 99.99% uptime.</p>
+                    </div>
+                </div>
+
+                <div class="gradient-border card-hover" data-aos="fade-up" data-aos-delay="400">
+                    <div class="p-8 space-y-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center text-xl">
+                            🤖
+                        </div>
+                        <h3 class="text-xl font-bold">AI-Powered Intelligence</h3>
+                        <p class="text-gray-400">Advanced NLP, sentiment analysis, content moderation, and intelligent automation that learns from your patterns.</p>
+                    </div>
+                </div>
+
+                <div class="gradient-border card-hover" data-aos="fade-up" data-aos-delay="500">
+                    <div class="p-8 space-y-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center text-xl">
+                            🔗
+                        </div>
+                        <h3 class="text-xl font-bold">Seamless Integration</h3>
+                        <p class="text-gray-400">Pre-built connectors for 100+ platforms, REST APIs, webhooks, SDKs in all major languages, and custom integration support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="relative py-32 px-6 bg-gradient-to-b from-slate-900/50 to-slate-950">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Industry Solutions</h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">Tailored platforms for enterprises across different industries, built on proven architectures.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="gradient-border card-hover h-full">
+                        <div class="p-8 space-y-4">
+                            <span class="inline-block px-3 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold">Enterprise</span>
+                            <h3 class="text-2xl font-bold">Secure Messaging Platform</h3>
+                    <p class="text-gray-400">Enterprise-grade messaging, notifications, and communication systems with advanced routing, templating, and delivery tracking.</p>
+                            <ul class="space-y-2 text-gray-400 text-sm">
+                                <li>✓ Multi-channel delivery (email, SMS, push, in-app)</li>
+                                <li>✓ Advanced templating engine</li>
+                                <li>✓ Real-time delivery tracking</li>
+                                <li>✓ A/B testing & optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gradient-border card-hover h-full">
+                        <div class="p-8 space-y-4">
+                            <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm font-semibold">Intelligence</span>
+                            <h3 class="text-2xl font-bold">AI Analytics Engine</h3>
+                            <p class="text-gray-400">Powerful analytics, machine learning models, user behavior analysis, and predictive insights powered by advanced AI.</p>
+                            <ul class="space-y-2 text-gray-400 text-sm">
+                                <li>✓ Real-time behavior analysis</li>
+                                <li>✓ Predictive modeling</li>
+                                <li>✓ Anomaly detection</li>
+                                <li>✓ Custom dashboard creation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gradient-border card-hover h-full">
+                        <div class="p-8 space-y-4">
+                            <span class="inline-block px-3 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-sm font-semibold">Infrastructure</span>
+                            <h3 class="text-2xl font-bold">Connected Systems Platform</h3>
+                            <p class="text-gray-400">Unified platform for managing, orchestrating, and optimizing distributed systems and IoT device ecosystems.</p>
+                            <ul class="space-y-2 text-gray-400 text-sm">
+                                <li>✓ Device management & control</li>
+                                <li>✓ IoT data aggregation</li>
+                                <li>✓ Edge processing</li>
+                                <li>✓ Real-time orchestration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="gradient-border card-hover h-full">
+                        <div class="p-8 space-y-4">
+                            <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm font-semibold">Custom</span>
+                            <h3 class="text-2xl font-bold">Bespoke Solutions</h3>
+                            <p class="text-gray-400">Custom-engineered platforms tailored to your specific needs, combining multiple services and technologies seamlessly.</p>
+                            <ul class="space-y-2 text-gray-400 text-sm">
+                                <li>✓ Architecture consulting</li>
+                                <li>✓ White-label options</li>
+                                <li>✓ Dedicated support</li>
+                                <li>✓ SLA guarantees</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section id="tech" class="relative py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Built on Modern Tech</h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">Enterprise-grade technology stack designed for scale, reliability, and performance.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="gradient-border card-hover text-center" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="p-6 space-y-3">
+                        <div class="text-3xl">🔵</div>
+                        <h4 class="font-semibold">Cloud-Native</h4>
+                        <p class="text-sm text-gray-400">Kubernetes, Docker</p>
+                    </div>
+                </div>
+
+                <div class="gradient-border card-hover text-center" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="p-6 space-y-3">
+                        <div class="text-3xl">📦</div>
+                        <h4 class="font-semibold">Data Pipeline</h4>
+                        <p class="text-sm text-gray-400">Apache Kafka, MongoDB</p>
+                    </div>
+                </div>
+
+                <div class="gradient-border card-hover text-center" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="p-6 space-y-3">
+                        <div class="text-3xl">⚙️</div>
+                        <h4 class="font-semibold">Backend</h4>
+                        <p class="text-sm text-gray-400">Node.js, .NET, Go</p>
+                    </div>
+                </div>
+
+                <div class="gradient-border card-hover text-center" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="p-6 space-y-3">
+                        <div class="text-3xl">🎨</div>
+                        <h4 class="font-semibold">Frontend</h4>
+                        <p class="text-sm text-gray-400">React, Vue, TypeScript</p>
+                    </div>
+                </div>
+
+                <div class="gradient-border card-hover text-center" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="p-6 space-y-3">
+                        <div class="text-3xl">🤖</div>
+                        <h4 class="font-semibold">AI/ML</h4>
+                        <p class="text-sm text-gray-400">TensorFlow, PyTorch</p>
+                    </div>
+                </div>
+
+                <div class="gradient-border card-hover text-center" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="p-6 space-y-3">
+                        <div class="text-3xl">🔍</div>
+                        <h4 class="font-semibold">Search</h4>
+                        <p class="text-sm text-gray-400">Elasticsearch, Vector DB</p>
+                    </div>
+                </div>
+
+                <div class="gradient-border card-hover text-center" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="p-6 space-y-3">
+                        <div class="text-3xl">📈</div>
+                        <h4 class="font-semibold">Analytics</h4>
+                        <p class="text-sm text-gray-400">Prometheus, Grafana</p>
+                    </div>
+                </div>
+
+                <div class="gradient-border card-hover text-center" data-aos="zoom-in" data-aos-delay="700">
+                    <div class="p-6 space-y-3">
+                        <div class="text-3xl">🔒</div>
+                        <h4 class="font-semibold">Security</h4>
+                        <p class="text-sm text-gray-400">OAuth 2.0, mTLS, Vault</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Stories Section -->
+    <section class="relative py-32 px-6 bg-gradient-to-b from-slate-950 to-slate-900/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Trusted by Industry Leaders</h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">Join 500+ enterprises and scale-ups using Veltrix Labs to power their most critical operations.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="gradient-border card-hover" data-aos="fade-up" data-aos-delay="0">
+                    <div class="p-8 space-y-4">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600"></div>
+                            <div>
+                                <p class="font-semibold">Fortune 500 FinTech</p>
+                                <p class="text-sm text-gray-400">Real-time payments</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-400">"Veltrix Labs helped us reduce message delivery latency by 10x while improving reliability. Essential for our global operations."</p>
+                        <div class="flex text-cyan-400">★★★★★</div>
+                    </div>
+                </div>
+
+                <div class="gradient-border card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-8 space-y-4">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-teal-600"></div>
+                            <div>
+                                <p class="font-semibold">Leading E-commerce</p>
+                                <p class="text-sm text-gray-400">Customer notifications</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-400">"Scale effortlessly across channels. API integrations are smooth and documentation is excellent."</p>
+                        <div class="flex text-cyan-400">★★★★★</div>
+                    </div>
+                </div>
+
+                <div class="gradient-border card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-8 space-y-4">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-indigo-600"></div>
+                            <div>
+                                <p class="font-semibold">SaaS Unicorn</p>
+                                <p class="text-sm text-gray-400">Analytics & insights</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-400">"The analytics capabilities are game-changing. Real-time insights directly improve our product decisions."</p>
+                        <div class="flex text-cyan-400">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="relative py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Transparent Pricing</h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">Flexible plans designed for businesses of all sizes. No surprises, no long-term contracts.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="gradient-border" data-aos="fade-up" data-aos-delay="0">
+                    <div class="p-8 space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Starter</h3>
+                            <p class="text-gray-400 text-sm">Perfect for prototypes and development</p>
+                        </div>
+                        <div>
+                            <span class="text-4xl font-bold">$99</span>
+                            <span class="text-gray-400 text-sm">/month</span>
+                        </div>
+                        <ul class="space-y-3 text-gray-300 text-sm">
+                            <li>✓ Up to 100K messages/month</li>
+                            <li>✓ 2 API tokens</li>
+                            <li>✓ Basic analytics</li>
+                            <li>✓ Email support</li>
+                            <li>✗ Priority support</li>
+                        </ul>
+                        <button class="w-full border border-cyan-500/50 text-cyan-400 py-3 rounded-lg font-semibold button-hover hover:bg-cyan-500/10">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+
+                <div class="gradient-border glow-effect" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-8 space-y-8 relative">
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full text-white text-sm font-bold">
+                            POPULAR
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Professional</h3>
+                            <p class="text-gray-400 text-sm">For scaling applications</p>
+                        </div>
+                        <div>
+                            <span class="text-4xl font-bold text-cyan-400">$499</span>
+                            <span class="text-gray-400 text-sm">/month</span>
+                        </div>
+                        <ul class="space-y-3 text-gray-300 text-sm">
+                            <li>✓ Up to 10M messages/month</li>
+                            <li>✓ Unlimited API tokens</li>
+                            <li>✓ Advanced analytics</li>
+                            <li>✓ Priority email support</li>
+                            <li>✓ Monthly strategy calls</li>
+                        </ul>
+                        <button class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg font-semibold button-hover">
+                            Start Free Trial
+                        </button>
+                    </div>
+                </div>
+
+                <div class="gradient-border" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-8 space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
+                            <p class="text-gray-400 text-sm">Custom solutions at scale</p>
+                        </div>
+                        <div>
+                            <span class="text-4xl font-bold">Custom</span>
+                            <span class="text-gray-400 text-sm">/month</span>
+                        </div>
+                        <ul class="space-y-3 text-gray-300 text-sm">
+                            <li>✓ Unlimited everything</li>
+                            <li>✓ Dedicated infrastructure</li>
+                            <li>✓ Multi-region deployment</li>
+                            <li>✓ 24/7 dedicated support</li>
+                            <li>✓ Custom integrations</li>
+                        </ul>
+                        <button class="w-full border border-cyan-500/50 text-cyan-400 py-3 rounded-lg font-semibold button-hover hover:bg-cyan-500/10">
+                            Contact Sales
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="relative py-32 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="gradient-border glow-effect-lg">
+                <div class="p-12 md:p-16 text-center space-y-8">
+                    <h2 class="text-4xl md:text-5xl font-bold">Ready to Transform Your Systems?</h2>
+                    <p class="text-gray-400 text-lg max-w-2xl mx-auto">Join leading enterprises in building the next generation of intelligent, connected applications.</p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg button-hover glow-effect">
+                            Schedule a Demo
+                        </button>
+                        <button class="border border-cyan-500/50 text-cyan-400 px-8 py-4 rounded-lg font-bold text-lg button-hover hover:bg-cyan-500/10">
+                            View Documentation
+                        </button>
+                    </div>
+                    
+                    <p class="text-gray-500 text-sm">No credit card required. Instant access to our product.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative py-16 px-6 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center font-bold text-white">
+                            VL
+                        </div>
+                        <span class="font-bold text-white">Veltrix Labs</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Building intelligent systems for a connected world.</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="font-semibold text-white">Product</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-cyan-400 transition">Features</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Pricing</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">API Docs</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Security</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="font-semibold text-white">Company</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-cyan-400 transition">About</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Careers</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="font-semibold text-white">Resources</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-cyan-400 transition">Privacy</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Terms</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Status</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                <p>&copy; 2026 Veltrix Labs. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-cyan-400 transition">Twitter</a>
+                    <a href="#" class="hover:text-cyan-400 transition">LinkedIn</a>
+                    <a href="#" class="hover:text-cyan-400 transition">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            offset: 100,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Update nav active state on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            sections.forEach(current => {
+                const sectionTop = current.offsetTop;
+                const sectionHeight = current.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('text-cyan-400', 'nav-active');
+                        link.classList.add('text-gray-300');
+                    });
+                    const activeLink = document.querySelector(`.nav-link[href="#${current.getAttribute('id')}"]`);
+                    if (activeLink) {
+                        activeLink.classList.remove('text-gray-300');
+                        activeLink.classList.add('text-cyan-400', 'nav-active');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

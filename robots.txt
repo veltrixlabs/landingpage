@@ -1,0 +1,25 @@
+# Robots for Veltrix Labs Landing Page
+User-agent: *
+Allow: /
+Disallow: /private/
+
+# Crawl delay (10 seconds between requests)
+Crawl-delay: 10
+
+# Sitemaps
+Sitemap: https://www.veltrixlabs.net/sitemap.xml
+
+# Block unwanted crawlers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 2

@@ -1,0 +1,30 @@
+# Netlify deployment configuration
+[build]
+command = "echo 'No build required - static HTML'"
+publish = "."
+
+# Redirect for trailing slashes
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+
+# Cache headers
+[[headers]]
+for = "/*"
+[headers.values]
+Cache-Control = "public, max-age=86400"
+
+[[headers]]
+for = "/index.html"
+[headers.values]
+Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Security headers
+[[headers]]
+for = "/*"
+[headers.values]
+X-Content-Type-Options = "nosniff"
+X-Frame-Options = "SAMEORIGIN"
+X-XSS-Protection = "1; mode=block"
+Referrer-Policy = "strict-origin-when-cross-origin"

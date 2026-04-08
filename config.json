@@ -1,0 +1,58 @@
+{
+  "name": "Veltrix Labs - Landing Page",
+  "version": "1.0.0",
+  "description": "Production-ready landing page for Veltrix Labs",
+  "author": "Veltrix Labs",
+  "license": "Copyright © 2026 Veltrix Labs",
+  "keywords": [
+    "landing-page",
+    "veltrix",
+    "ai",
+    "messaging",
+    "intelligent-systems"
+  ],
+  "settings": {
+    "company": {
+      "name": "Veltrix Labs",
+      "slogan": "Building Intelligent Systems for a Connected World",
+      "email": "hello@veltrix-labs.com",
+        "website": "https://www.veltrixlabs.net"
+    },
+    "colors": {
+      "primary": "#00d4ff",
+      "secondary": "#0099ff",
+      "accent": "#6366f1",
+      "background": "#0f172a"
+    },
+    "analytics": {
+      "google_analytics_id": "G-XXXXXXXXXX",
+      "hotjar_id": "XXXXXXXXX"
+    },
+    "social": {
+      "twitter": "https://twitter.com/veltrix-labs",
+      "linkedin": "https://linkedin.com/company/veltrix-labs",
+      "github": "https://github.com/veltrix-labs"
+    }
+  },
+  "deployment": {
+    "recommended_platforms": [
+      "Netlify",
+      "Vercel",
+      "GitHub Pages",
+      "AWS CloudFront"
+    ],
+    "build_command": "No build required - static HTML",
+    "start_command": "Open index.html in browser"
+  },
+  "seo": {
+    "meta_title": "Veltrix Labs - Intelligent Systems for Connected World",
+    "meta_description": "Enterprise-grade AI solutions, messaging platforms, and connected systems.",
+    "og_image": "https://www.veltrixlabs.net/og-image.png"
+  },
+  "performance": {
+    "target_lighthouse_score": 95,
+    "target_page_size": "150KB",
+    "target_load_time": "2s",
+    "core_web_vitals": "All Green"
+  }
+}
