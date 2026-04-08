@@ -20,14 +20,3 @@ cwd = "./landing"
 
 [build.upload]
 format = "modules"
-
-# Rules must ALL be array format
-[[rules]]
-type = "CompiledContentType"
-globs = ["*.html", "*.css", "*.js"]
-fallthrough = true
-
-[[rules]]
-type = "CompiledContentType"
-globs = ["*"]
-fallthrough = true
