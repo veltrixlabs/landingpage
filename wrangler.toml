@@ -3,3 +3,15 @@ compatibility_date = "2024-04-08"
 
 [assets]
 directory = "./landing"
+
+[env.production]
+name = "veltrix-labs-landing-prod"
+routes = [
+  { pattern = "www.veltrixlabs.net/*", zone_name = "veltrixlabs.net" }
+]
+
+[env.staging]
+name = "veltrix-labs-landing-staging"
+routes = [
+  { pattern = "staging.veltrixlabs.net/*", zone_name = "veltrixlabs.net" }
+]
