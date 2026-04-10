@@ -2,10 +2,9 @@ name = "veltrix-labs-landing"
 compatibility_date = "2024-04-08"
 
 [assets]
-directory = "./landing/dist"
+directory = "./landing"
 
 [build]
-command = "bun run build"
 cwd = "./landing"
 
 [env.production]

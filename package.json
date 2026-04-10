@@ -1,4 +1,4 @@
-{
+/* {
   "name": "veltrix-labs-landing",
   "version": "1.0.0",
   "description": "Production-ready landing page for Veltrix Labs - Building Intelligent Systems for a Connected World",
@@ -28,13 +28,9 @@
     "url": "https://github.com/veltrixlabs/landingpage.git"
   },
   "devDependencies": {
-    "netlify-cli": "^latest",
     "vercel": "^latest",
     "wrangler": "^latest",
     "http-server": "^latest"
-  },
-  "engines": {
-    "node": ">=18.0.0"
   },
   "cloudflare": {
     "pages": {
@@ -44,3 +40,4 @@
     }
   }
 }
+ */
